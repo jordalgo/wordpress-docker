@@ -1,0 +1,7 @@
+wp-config.php
+node_modules
+vendor
+wordpress
+composer.lock
+.data
+.htaccess

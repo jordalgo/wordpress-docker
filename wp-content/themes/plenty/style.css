@@ -1,0 +1,1995 @@
+/*   
+Theme Name: Plenty Theme for ECI at CUNY
+Theme URI: http://plentynyc.com/
+Description: Plenty's theme for ECI at CUNY based on The HTML5 Reset Theme
+Author: Monkey Do and Plenty
+Author URI: http://monkeydo.biz
+Version: 1
+*/
+
+/*
+	HTML5 Reset Wordpress Theme :: style.css
+	----------------------------------------------------------
+	We have learned much from/been inspired by/taken code where offered from:
+	
+	Eric Meyer					:: http://ericmeyer.com
+	HTML5 Doctor				:: http://html5doctor.com
+	and the HTML5 Boilerplate	:: http://html5boilerplate.com
+	
+	Special thanks: The Wordpress theme owes its start to an empty theme authored 
+		by Chris Coyier & Jeff Starr: http://digwp.com
+	
+-------------------------------------------------------------------------------*/
+
+/* Let's default this puppy out
+-------------------------------------------------------------------------------*/
+
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}									
+
+article, aside, figure, footer, header, hgroup, nav, section {display: block;}
+
+/* Responsive images and other embedded objects
+   Note: keeping IMG here will cause problems if you're using foreground images as sprites, like, say for Google Maps custom placemarkers. 
+   There has been a report of problems with standard Google maps as well, but we haven't been able to duplicate or diagnose the issue. */
+
+
+/* force a vertical scrollbar to prevent a jumpy page */
+html {overflow-y: scroll;}
+
+/* we use a lot of ULs that aren't bulleted. 
+	don't forget to restore the bullets within content. */
+ul {list-style: none;}
+
+blockquote, q {quotes: none;}
+
+blockquote:before, 
+blockquote:after, 
+q:before, 
+q:after {content: ''; content: none;}
+
+a {margin: 0; padding: 0; font-size: 100%; vertical-align: baseline; background: transparent;}
+
+del {text-decoration: line-through;}
+
+abbr[title], dfn[title] {border-bottom: 1px dotted #000; cursor: help;}
+
+/* tables still need cellspacing="0" in the markup */
+table {border-collapse: collapse; border-spacing: 0;}
+th {font-weight: normal; vertical-align: bottom;}
+td {font-weight: normal; vertical-align: top;}
+
+hr {display: block; height: 1px; border: 0; background:url(./images/dotted-border-x.png) top left repeat-x; margin: 1em 0; padding: 0;}
+
+input, select {vertical-align: middle;}
+
+pre {
+	white-space: pre; /* CSS2 */
+	white-space: pre-wrap; /* CSS 2.1 */
+	white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
+	word-wrap: break-word; /* IE */
+}
+
+input[type="radio"] {vertical-align: text-bottom;}
+input[type="checkbox"] {vertical-align: bottom; *vertical-align: baseline;}
+.ie6 input {vertical-align: text-bottom;}
+
+select, input, textarea {font: 99% sans-serif;}
+
+table {font-size: inherit; font: 100%;}
+ 
+/* Accessible focus treatment
+	people.opera.com/patrickl/experiments/keyboard/test */
+a:hover, a:active {outline: none;}
+
+small {font-size: 85%;}
+
+strong, th {font-weight: normal;}
+
+td, td img {vertical-align: top;} 
+
+/* Make sure sup and sub don't screw with your line-heights
+	gist.github.com/413930 */
+sub, sup {font-size: 75%; line-height: 0; position: relative;}
+sup {top: -0.5em;}
+sub {bottom: -0.25em;}
+
+/* standardize any monospaced elements */
+pre, code, kbd, samp {font-family: monospace, sans-serif;}
+
+/* hand cursor on clickable elements */
+.clickable,
+label, 
+input[type=button], 
+input[type=submit], 
+button {cursor: pointer;}
+
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
+button, input, select, textarea {margin: 0;}
+
+/* make buttons play nice in IE */
+button {width: auto; overflow: visible;}
+ 
+/* scale images in IE7 more attractively */
+.ie7 img {-ms-interpolation-mode: bicubic;}
+
+/* prevent BG image flicker upon hover */
+.ie6 html {filter: expression(document.execCommand("BackgroundImageCache", false, true));}
+
+/* let's clear some floats */
+.clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }  
+.clearfix:after { clear: both; }  
+.clearfix { zoom: 1; }  
+
+
+
+/* Ok, this is where the fun starts.
+-------------------------------------------------------------------------------*/
+
+/* new Linux- and Windows-friendly sans-serif font stack: http://mky.be/fontstack */
+body {font: 14px 'Avenir LT W01 45 Book', Helmet, Freesans, sans-serif; -webkit-font-smoothing: antialiased;}
+
+/* using local fonts? make sure to read up on Paul Irish's 
+	Bulletproof @font-face syntax: http://mky.be/font-face/bulletproof/ */
+
+/* we like off-black for text */
+body, select, input, textarea {color: #333;}
+
+a {color: #03f;}
+a:hover {color: #69f;}
+
+/* Custom text-selection colors (remove any text shadows: twitter.com/miketaylr/status/12228805301) */
+::-moz-selection{background: #fcd700; color: #fff; text-shadow: none;}
+::selection {background: #fcd700; color: #fff; text-shadow: none;} 
+
+/*	j.mp/webkit-tap-highlight-color */
+a:link {-webkit-tap-highlight-color: #fcd700;} 
+
+ins {background-color: #fcd700; color: #000; text-decoration: none;}
+mark {background-color: #fcd700; color: #000; font-style: normal; font-weight: normal;}
+
+
+
+/* And here begins the Wordpress fun.
+-------------------------------------------------------------------------------*/
+
+/*
+font-family:'Avenir LT W01 35 Light';
+font-family:'AvenirLTW01-35LightObli';
+font-family:'Avenir LT W01 45 Book';
+font-family:'AvenirLTW01-45BookObliq';
+font-family:'AvenirLTW01-55Oblique';
+font-family:'Avenir LT W01 55 Roman';
+font-family:'Avenir LT W01 65 Medium';
+font-family:'AvenirLTW01-65MediumObl';
+font-family:'Avenir LT W01 85 Heavy';
+font-family:'AvenirLTW01-85HeavyObli';
+font-family:'Avenir LT W01 95 Black';
+font-family:'AvenirLTW01-95BlackObli';
+
+*/
+
+.alignleft {
+	float: left;
+}
+.alignright {
+	float: right;
+}
+
+* {
+	margin: 0;
+}
+html, body {
+	height: 100%;
+	font-family:'Avenir LT W01 55 Roman';
+	color: #848484;
+}
+#page-wrap {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -268px; /* the bottom margin is the negative value of the footer's height */
+}
+.sro {
+	display: block;
+	text-indent: -9999px;
+	overflow: hidden;
+	position: relative;
+}
+.sro span {
+	position: absolute;
+	top:0;
+	left: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	background-repeat: none;
+}
+.sro span.a {
+	background-position: top left;
+	z-index: 1;
+}
+.sro span.b {
+	z-index: 2;
+	background-position: bottom left;
+	zoom:1;
+	opacity: 0;
+	filter:alpha(opacity=0);
+}
+#header {
+	background: url(./images/header-repeat.png) top left repeat-x;
+	height: 128px;
+	min-width: 1200px;
+	position: relative;
+	z-index: 2;
+}
+#header-content {
+	margin:0 auto;
+	width: 990px;
+	padding:0 105px;
+	background:url(./images/header.png) top left no-repeat;
+	height: 125px;
+	position: relative;
+}
+#logo {
+	display: block;
+	width: 201px;
+	height: 92px;
+	overflow: hidden;
+	text-indent: -9999px;
+	background: url(./images/logo.png) top left no-repeat;
+	position: absolute;
+	top:18px;
+	left:105px;
+}
+#sm-head {
+	position: absolute;
+    right: 109px;
+    top: 12px;
+    width: 118px;
+}
+#sm-head a {
+	display: block;
+	text-indent: -9999px;
+	overflow: hidden;
+	width: 36px;
+	height: 37px;
+	float: left;
+}
+#facebook-head {
+	margin-right:5px;
+}
+#twitter-head {
+	margin-right:5px;
+}
+#facebook-head span {
+	background-image: url(./images/facebook.png);
+}
+#youtube-head span {
+	background-image: url(./images/youtube.png);
+}
+#twitter-head span {
+	background-image: url(./images/twitter.png);
+}
+nav {
+	position: absolute;
+	top:72px;
+	right:115px; 
+}
+nav ul li {
+	display: block;
+	float:left;
+	height: 28px;
+	background: url(./images/nav-dots.png) top left no-repeat;
+}
+nav ul li a {
+	display: block;
+	height: 13px;
+	margin:8px 12px 7px 14px;
+}
+li#nav-our-approach {
+	background: none;
+}
+li#nav-our-approach a{
+	width: 101px;
+	margin-left:0;
+	margin-right:14px;
+}
+li#nav-our-approach a span {
+	background-image: url(./images/nav-our-approach.png);
+}
+.page-template-template-our-approach-php li#nav-our-approach a {
+	width: 138px;
+	height: 56px;
+	background: url(./images/nav-active.png) 0px 0px no-repeat;
+	margin: -10px -9px 0 0;
+}
+.page-template-template-our-approach-php li#nav-our-approach a span {
+	background: none;
+}
+li#nav-our-schools a{
+	width: 92px;
+	margin-left:13px;
+}
+li#nav-our-schools a span {
+	background-image: url(./images/nav-our-schools.png);
+}
+.page-template-template-our-schools-php li#nav-our-schools a {
+	width: 130px;
+	height: 56px;
+	background: url(./images/nav-active.png) -138px 0px no-repeat;
+	margin: -10px -11px 0 -2px;
+}
+.page-template-template-our-schools-php li#nav-our-schools a span {
+	background: none;
+}
+li#nav-our-partners a {
+	width: 100px;
+}
+li#nav-our-partners a span {
+	background-image: url(./images/nav-our-partners.png);
+}
+.page-template-template-our-partners-php li#nav-our-partners a {
+	width: 135px;
+	height: 56px;
+	background: url(./images/nav-active.png) -268px 0px no-repeat;
+	margin: -10px -9px 0 0;
+}
+.page-template-template-our-partners-php li#nav-our-partners a span {
+	background: none;
+}
+li#nav-results a {
+	width: 57px;
+	margin-left:15px;
+}
+li#nav-results a span {
+	background-image: url(./images/nav-results.png);
+}
+.page-template-template-results-php li#nav-results a {
+	width: 93px;
+	height: 56px;
+	background: url(./images/nav-active.png) -403px 0px no-repeat;
+	margin: -10px -10px 0 1px;
+}
+.page-template-template-results-php li#nav-results a span {
+	background: none;
+}
+li#nav-resources a {
+	width: 77px;
+	margin: 8px 13px 7px 15px;
+}
+li#nav-resources a span {
+	background-image: url(./images/nav-resources.png);
+}
+.page-template-template-resources-php li#nav-resources a {
+	width: 113px;
+	height: 56px;
+	background: url(./images/nav-active.png) -496px 0px no-repeat;
+	margin: -10px -9px 0 1px;
+}
+.page-template-template-resources-php li#nav-resources a span {
+	background: none;
+}
+li#nav-get-involved a {
+	width: 92px;
+}
+li#nav-get-involved a span {
+	background-image: url(./images/nav-get-involved.png);
+}
+.page-template-template-get-involved-php li#nav-get-involved a, .page-template-template-get-involved-child-php li#nav-get-involved a {
+	width: 127px;
+	height: 56px;
+	background: url(./images/nav-active.png) -609px 0px no-repeat;
+	margin: -10px -9px 0 0;
+}
+.page-template-template-get-involved-php li#nav-get-involved a span, .page-template-template-get-involved-child-php li#nav-get-involved a span {
+	background: none;
+}
+li#nav-about-us a {
+	width: 65px;
+	margin-right:0;
+}
+li#nav-about-us a span {
+	background-image: url(./images/nav-about-us.png);
+}
+.page-template-template-about-us-php li#nav-about-us a, .page-template-template-staff-php li#nav-about-us a, .page-template-template-in-the-news-php li#nav-about-us a  {
+	width: 99px;
+	height: 56px;
+	background: url(./images/nav-active.png) -736px 0px no-repeat;
+	margin: -10px -21px 0 1px;
+}
+.page-template-template-about-us-php li#nav-about-us a span, .page-template-template-staff-php li#nav-about-us a span, .page-template-template-in-the-news-php li#nav-about-us a span {
+	background: none;
+}
+#page-content {
+	z-index: 1;
+	position: relative;
+	width: 100%;
+	margin-top: -3px;
+	padding:0;
+	min-height: 400px;
+	padding-bottom: 50px;
+}
+#push { 
+	height: 268px;
+}
+footer {
+	height: 240px; /* .push must be the same height as .footer */
+	margin-top: 28px;
+	background: #696969;
+	position: relative;
+	min-width: 1200px;
+}
+#footer-border {
+	position: absolute;
+	z-index: 2;
+	background: url(./images/footer-border.png) top center no-repeat;
+	width: 1200px;
+	height: 7px;
+	top:0;
+	left: 50%;
+	margin-left:-600px;
+}
+#footer-content {
+	width: 990px;
+	padding: 0 105px;
+	margin:0 auto;
+	background: url(./images/footer-repeat.png) top left repeat-y;
+	height: 233px;
+	position: relative;
+	z-index: 1;
+	padding-top: 7px;
+}
+#footer p {
+	color: #bcbaba;
+	font-size: 14px;
+	float: left;
+	line-height: 40px;
+	font-family:'Avenir LT W01 35 Light';
+
+}
+#footer ul {
+	float: right;
+}
+#footer ul li {
+	float:left;
+	display: block;
+	height: 40px;
+}
+/*#footer ul li:first-child {
+	background: url(./images/footer-separator.png) center right no-repeat;
+	padding-right: 12px;
+	margin-right: 12px;
+}*/
+#footer ul li a {
+	text-decoration: none;
+	color: #d2d1d1;
+	font-size: 14px;
+	line-height: 40px;
+	font-family:'Avenir LT W01 45 Book';
+}
+#cuny-logo {
+	width: 118px;
+	height: 57px;
+	clear: both;
+}
+#cuny-logo span {
+	background-image: url(./images/cuny-logo.png);
+}
+
+#blue-wrapper {
+	background: url(./images/blue-bg-repeat.jpg) top left repeat-x;
+}
+
+#blue-section {
+	background: url(./images/blue-bg.jpg) top left no-repeat;
+	height: 100%;
+	width: 990px;
+	padding:0 105px;
+	margin:0 auto;
+	overflow: auto;
+}
+
+#blue-section h1 {
+	color: #fff;
+	font-weight: normal;
+	font-size: 24px;
+	font-family:'Avenir LT W01 85 Heavy';
+	text-transform: uppercase;
+	margin-top:25px;
+}
+
+/* HOMEPAGE
+------------------------------------------------------------------------------*/
+
+.home #blue-wrapper {
+	height: 424px;
+}
+
+#home-border {
+	width: 100%;
+	height: 1px;
+	margin: 2px auto 0 auto;
+	background: #d9e0e5 url(./images/home-border.gif) top center no-repeat;
+}
+
+#jfcg {
+    position:relative;
+    width:990px;
+    height:393px;
+    margin:24px auto 0 auto;
+    background: url(./images/jumbotron-bg.png) top left no-repeat;
+}
+
+#jfcg .slide {
+    width: 986px;
+    height: 360px;
+    position:absolute;
+    z-index:8;
+    background-color:transparent;
+    top:10px;
+    left:2px;
+    display: none;
+}
+#jfcg img {
+    width:986px;
+    height:360px;
+}
+#jfcg a:link,
+#jfcg a:hover,
+#jfcg a:visited {
+    text-decoration: none;
+}
+#jfcg.cont {
+    position:relative;
+    background-image:url('./header-pic.png');
+    background-repeat:no-repeat;
+}
+#jfcg h2 {
+    color: #c5285b;
+    font-size: 20px;
+    font-family:'Avenir LT W01 65 Medium';
+    position: relative;
+    zoom:1;
+    filter:alpha(opacity=0);
+    opacity: 0;
+    text-transform: uppercase;
+
+}
+#jfcg .slide.active {
+    z-index:10;
+    display: block;
+}
+#jfcg .slide.last-active {
+    z-index:9;
+    filter: alpha(opacity=0);
+    opacity:0.0;
+}
+#jfcg #black-box {
+	width: 384px;
+	height: 157px;
+	position: absolute;
+	left:2px;
+	top:213px;
+	background: #000;
+	zoom:1;
+	filter:alpha(opacity=80);
+	opacity: .8;
+	z-index: 12;
+}
+#jfcg .info {
+	position: absolute;
+	z-index: 13;
+	top: 213px;
+	left: 2px;
+	width: 344px;
+	height: 127px;
+	padding: 30px 15px 0 25px;
+	overflow: hidden;
+}
+#jfcg .info.active {
+    z-index: 14;
+}
+#jfcg .info p {
+	color:#fff;
+	font-size: 16px;
+	font-family:'Avenir LT W01 55 Roman';
+	line-height: 20px;
+	margin-top: 5px;
+	position: relative;
+	zoom:1;
+	filter:alpha(opacity=0);
+	opacity: 0;
+}
+#jfcg .info.active p, #jfcg .info.active h2 {
+	filter:none;
+	opacity: 1;
+}
+#jfcg .info .cta {
+	width: 145px;
+	height: 26px;
+	position: absolute;
+	left:25px;
+	bottom:17px;
+	display: none;
+}
+#jfcg .info .cta span {
+	background-image: url(./images/jumbotron-learn-more.png);
+}
+#jfcg .info .cta.video_embed {
+	width: 192px;
+}
+#jfcg .info .cta.video_embed span {
+	background-image: url(./images/jumbotron-watch-video.png);
+}
+
+#jfcg .info.active .cta {
+	display: block;
+}
+
+#jfcg #jumbotron-shadow {
+	position: absolute;
+	top:10px;
+	left:2px;
+	width: 986px;
+	height: 360px;
+	background: url(./images/jumbotron-shadow.png) top left no-repeat;
+	z-index: 11;
+}
+#jfcg #pager {
+	position: absolute;
+	z-index: 15;
+	width: 134px;
+	height: 28px;
+	background: url(./images/pager.png) top left no-repeat;
+	top:328px;
+	left:282px;
+}
+
+#prev, #next {
+	width: 19px;
+	height: 25px;
+	float:left;
+}
+#next {
+	margin-right: 10px;
+}
+#prev span {
+	background-image: url(./images/pager-prev-arrows.png);
+}
+#next span {
+	background-image: url(./images/pager-next-arrows.png);
+}
+
+#pager .page {
+	width: 10px;
+	height: 10px;
+	float: left;
+	margin: 8px 2px 0 2px;
+}
+#pager .page span {
+	background-image: url(./images/pager-dots.png);
+}
+#pager .page.active span.b {
+	filter:none !important;
+	opacity: 1 !important;
+}
+#pager .page.active span.a {
+	display: none !important;
+}
+
+#jfcg #pager:hover {
+	background-position: bottom left;
+}
+
+article {
+	width: 990px;
+	margin:0 auto;
+	padding:0 105px;
+}
+
+article em, article i {
+	font-family:'AvenirLTW01-45BookObliq';
+	font-style: normal;
+}
+.home article table {
+	margin:28px 0 16px 0;
+	position: relative;
+}
+#gray-rectangle {
+	background: url(./images/gray-rectangle.png) 0px -3px no-repeat;
+	width: 527px;
+	height: 279px;
+	padding: 48px 40px 50px 35px;
+	position: relative;
+}
+#gray-rectangle img {
+	display: block;
+	margin-bottom:13px;
+}
+#gray-rectangle p, #gray-rectangle {
+	font-family:'AvenirLTW01-55Oblique';
+	font-size: 16px;
+	color: #777777;
+	line-height: 27px;
+}
+#gray-rectangle a {
+	width: 172px;
+	height: 49px;
+	position: absolute;
+	top: 300px;
+	left: 35px;
+}
+#gray-rectangle a span {
+	background-image: url(./images/our-approach-learn-more.png);
+}
+
+
+.sideInfo {
+	background: #fff url(./images/dotted-border.gif) 0px 0px no-repeat;
+	display: block;
+	overflow: hidden;
+	line-height: 19px;
+}
+.sideInfo img {
+	margin: 17px 11px 79px 24px;
+}
+.sideInfo h2 {
+	margin:23px 0 5px 0;
+	font-size: 20px;
+	color: #a4234d;
+	font-family:'Avenir LT W01 85 Heavy';
+}
+.entry-content .sideInfo p {
+	font-size: 14px;
+	color: #7c7c7c;
+	font-family:'Avenir LT W01 45 Book';
+	width: 310px;
+	line-height: 19px;
+}
+
+.sideInfo a {
+	width: 110px;
+	height: 25px;
+	margin-top: 9px;
+}
+.sideInfo a span{
+	background-image: url(./images/home-learn-more.png);
+}
+
+
+#featured-image {
+	background: url(./images/featured-image-border.png) top left no-repeat;
+	width: 996px;
+	padding:10px 2px 0 2px;
+	height: 310px;
+	margin: 6px 0 17px 0;
+}
+
+#featured-image img {
+	width: 986px;
+	height: 288px;
+}
+
+.entry-content h1 {
+	color: #a4234d;
+	font-weight: normal;
+	font-size: 24px;
+	line-height: 30px;
+	font-family:'AvenirLTW01-35LightObli';
+	margin-bottom: 23px;
+}
+.entry-content p, .entry-content {
+	font-size: 16px;
+	color: #848484;
+	font-family:'Avenir LT W01 45 Book';
+	line-height: 26px;
+}
+.page-template-template-our-approach-php .entry-content h1 {
+	width: 590px;
+}
+.page-template-template-our-approach-php .entry-content {
+	width: 600px;
+	margin-right: 65px;
+	margin-top: 28px;
+	float: left;
+}
+
+#approach-sidebar {
+	float: right;
+	width: 325px;
+	margin-top: 28px;
+	background: url(./images/dotted-border-y.png) top left repeat-y;
+}
+
+#approach-sidebar .sidebar-section {
+	background: url(./images/dotted-border-x.png) 2px 0px repeat-x;
+	position: relative;
+	padding-top: 1px;
+    margin-top: -1px;
+    height: 130px;
+    width: 323px;
+    margin-left: 1px;
+}
+
+#approach-sidebar .sidebar-section:first-child {
+	height: auto;
+}
+#approach-sidebar .sidebar-section .arrow {
+	width: 35px;
+	height: 52px;
+	position: absolute;
+	background: url(./images/red-arrow.png) top left no-repeat;
+	top:50%;
+	left:-9px;
+	margin-top:-26px;
+}
+#approach-sidebar .sidebar-section h3 {
+ 	background-color:#f4f4f4;
+ 	font-size: 20px;
+ 	color: #7d7c7c;
+ 	line-height: 45px;
+ 	font-weight: normal;
+ 	font-family:'AvenirLTW01-35LightObli';
+ 	text-align: center;
+ 	width: 321px;
+ 	margin: 1px 0 2px 1px;
+ }
+#approach-sidebar .sidebar-section p {
+	font-size: 18px;
+	color: #848484;
+	line-height: 23px;
+	font-family:'AvenirLTW01-35LightObli';
+}
+#approach-bottom {
+	background: url(./images/dotted-border-x.png) bottom left repeat-x;
+	width: 100%;
+	height: 1px;
+	position: absolute;
+	bottom: 0;
+	left: 2px;
+}
+
+.bubble { 
+  position: absolute; 
+  left:43px;
+  top:1px;
+  width: 230px;
+  height: 128px;
+  display: table; 
+}
+
+.bubble p {
+  display: table-cell; 
+  vertical-align: middle; 
+}
+.download-pdf {
+	width: 156px;
+	height: 22px;
+	margin-top: 10px;
+}
+.download-pdf span {
+	background-image: url(./images/download-pdf.png);
+}
+
+#map-section {
+	width: 990px;
+	padding: 0 105px;
+	margin: 26px auto 0 auto;
+}
+
+#school-list {
+	width: 560px;
+	float: left;
+}
+
+.school-lat, .school-lng, #school-list .school-real-name {
+	display: none;
+}
+
+#school-list h3 {
+	color: #2e85d3;
+	font-size: 14px;
+	font-family:'Avenir LT W01 85 Heavy';
+	letter-spacing: -.4px;
+}
+
+#school-list .school-address br {
+ display: none;
+
+}
+
+#school-list .school-address {
+	white-space: normal;
+}
+
+.infobox .school-address {
+	white-space: pre;
+	position: absolute;
+	top: 86px;
+	left: 62px;
+	margin: 0;
+}
+
+* {
+	font-weight: normal;
+}
+
+.school-item {
+	background: #fafafa url(./images/school-item-bg.png) top left no-repeat;
+	border-right:2px solid #f0f0f0;
+	font-family:'Avenir LT W01 35 Light';
+	font-size: 14px;
+	color:#a0a0a0;
+	position: relative;
+	margin:13px 0;
+	padding-bottom: 20px;
+}
+.school-item:first-child {
+	margin: 0 0 13px 0;
+}
+.school-item strong {
+	font-family:'Avenir LT W01 65 Medium';
+}
+
+.school-grades strong, .school-partner {
+	padding-left: 25px;
+	background: url(./images/school-arrow.png) top left no-repeat;
+}
+.school-item p {
+	color: #7c7c7c;
+	margin:4px 0 9px 0;
+}
+.school-hidden {
+	padding-left:32px;
+	border-left:1px solid #f5f5f5;
+	top: 6px;
+	padding-bottom: 20px;
+	display: none;
+	position: relative;
+}
+.school-visible {
+	width: 413px;
+	min-height: 62px;
+	padding: 30px 0 0 33px;
+}
+
+.school-bottom {
+	position: absolute;
+	width: 562px;
+	bottom:-7px;
+	left:0;
+	height: 7px;
+	background: url(./images/school-item-bottom.png) bottom left no-repeat;
+}
+
+.school-more {
+	width: 94px;
+	position: absolute;
+	top:5px;
+	right:3px;
+	z-index: 2;
+	bottom:5px;
+	display: block;
+	text-indent: -9999px;
+	overflow: hidden;
+}
+
+.school-more img, .school-more span {
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top:0;
+	left:0;
+}
+
+.school-more .b {
+	display: none;
+}
+
+.school-more span.a {
+	background:url(./images/our-schools-more-info-fg-a.png) center no-repeat;
+	z-index: 3;
+}
+.school-more span.b {
+	background:url(./images/our-schools-more-info-fg-b.png) center no-repeat;
+	z-index: 4;
+}
+
+.school-more img.a {
+	z-index: 1;
+}
+.school-more img.b {
+	z-index: 2;
+}
+
+.school-pdf {
+	width: 182px;
+	height: 45px;
+	margin:20px 10px -20px 0;
+	float: left;
+}
+.school-pdf span {
+	background-image: url(./images/view-pdf.png);
+}
+.school-video {
+	width: 204px;
+	height: 45px;
+	margin:20px 0px -20px 0;
+	float: left;
+}
+.school-video span {
+	background-image: url(./images/our-schools-watch-video.png);
+}
+
+#fixed-fix.active {
+	width: 990px;
+	padding:0 105px;
+	position: fixed;
+	top:20px;
+	left: 50%;
+	margin-left:-600px;
+}
+
+.school-close {
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	top:9px;
+	right: 9px;
+	z-index: 1;
+	display: none;
+}
+
+.school-close span {
+	background-image: url(./images/school-close.png);
+}
+
+.info-close {
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	top:9px;
+	right: 7px;
+	z-index: 1;
+	display: block;
+	background:url(./images/school-close.png) top left no-repeat;
+}
+.info-close:hover {
+	background-position: bottom left;
+}
+
+h1.entry-title {
+	font-size: 24px;
+	color:#848484;
+	font-family:'Avenir LT W01 85 Heavy';
+	text-transform: uppercase;
+	margin-top: 25px;
+}
+
+#school-list .infobox {
+	display:none;
+}
+.infobox {
+	width: 308px;
+	height: 116px;
+	padding:24px 0 0 17px;
+	background: url(./images/map-infobox.png) top left no-repeat;
+	position: relative;
+}
+
+.infoBox > img{
+	z-index: 100;
+}
+
+.school-real-name {
+	color: #2e85d3;
+	font-size: 14px;
+	font-family:'Avenir LT W01 85 Heavy';
+}
+
+#map-section #map_canvas {
+	width: 398px;
+	height: 711px;
+}
+
+#map-wrap {
+	width: 408px;
+	height: 723px;
+	background: url(./images/map-outline.png) top left no-repeat;
+	padding: 5px 5px;
+	float: right;
+	margin-right: -16px;
+	margin-top: -2px;
+}
+
+.map-marker {
+	position: absolute;
+	bottom:10px;
+	left:12px;
+}
+
+
+.page-template-template-our-partners-php article {
+	margin:25px auto 29px auto;
+}
+.page-template-template-our-partners-php article em {
+	color: #605e5e;
+	font-size: 18px;
+	line-height: 28px;
+}
+
+.dotted-border-x {
+	width: 100%;
+	display: block;
+	height: 1px;
+	background: url(./images/dotted-border-x.png) top left repeat-x;
+}
+.page-template-template-our-partners-php .dotted-border-x {
+	border-top:2px solid #fff;
+	border-bottom:2px solid #fff;
+	/*borders so that i don't have to worry about margins collapsing*/
+}
+#partners-section {
+	width: 990px;
+	padding:0 105px;
+	margin: 0 auto;
+}
+
+#partners-section h2 {
+	height: 82px;
+}
+
+#partners-section h2 a {
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #2e85d3;
+	font-size: 20px;
+	font-family:'Avenir LT W01 85 Heavy';
+	display: block;
+	height: 100%;
+	line-height: 82px;
+	position: relative;
+	padding-left:80px;
+	outline: none;
+}
+
+#partners-section p, #partners-section {
+	color:#848484;
+	font-size:16px;
+	font-family:'Avenir LT W01 55 Roman';
+	line-height: 24px;
+}
+#partners-section h3 {
+	font-size:22px;
+	font-weight: normal;
+	font-family:'AvenirLTW01-35LightObli';
+	margin-bottom:15px;
+}
+#partners-section a {
+	color:#2885d8;
+	text-decoration: none;
+}
+
+#partners-section li {
+	margin:10px 0;
+}
+#partners-section table {
+	margin-top:30px;
+}
+#partners-section h2 a span {
+	width: 47px;
+	height: 48px;
+	background:url(./images/our-partners-more.png) top left no-repeat;
+	overflow: hidden;
+	display: block;
+	position: absolute;
+	top:17px;
+	left:15px;
+	z-index: 1;
+}
+
+#partners-section h2 a span.b {
+	background-position: bottom left;
+	display: none;
+	z-index: 2;
+}
+
+.partner-entry {
+	width: 840px;
+	padding: 0 80px 30px 80px;
+	position: relative;
+	z-index: 1;
+	display: none;
+	top:-20px;
+}
+
+.partner-item.active {
+	background:#f9f9f9;
+}
+
+#partners-section .active h2 a {
+	background:#f9f9f9 !important;
+}
+.partner-entry ul li a, #get-involved-pages ul li a {
+	position: relative;
+	padding-left:27px;
+	line-height: 24px;
+	display: block;
+	height: 24px;
+}
+.partner-entry ul li a span, #get-involved-pages ul li a span {
+	background: url(./images/our-partners-arrows.png) top left no-repeat;
+	display: block;
+	width: 14px;
+	height: 9px;
+	position: absolute;
+	overflow: hidden;
+	z-index: 1;
+	top:7px;
+	left:0;
+}
+.partner-entry ul li a span.b, #get-involved-pages ul li a span.b {
+	z-index: 2;
+	background-position: bottom left;
+	zoom:1;
+	filter:alpha(opacity=0);
+	opacity: 0;
+}
+
+/*
+OUR RESULTS
+----------------------------------------------------------------------------------*/
+
+.page-template-template-results-php article {
+	margin:25px auto 18px auto;
+}
+.page-template-template-results-php article em {
+	color: #605e5e;
+	font-size: 22px;
+	line-height: 30px;
+}
+.page-template-template-results-php .dotted-border-x {
+	border-top:2px solid #fff;
+	border-bottom:2px solid #fff;
+	/*borders so that i don't have to worry about margins collapsing*/
+}
+#results-section {
+	width: 990px;
+	padding:0 105px;
+	margin: 0 auto;
+}
+
+#results-section h2 {
+	height: 82px;
+}
+
+#results-section h2 a {
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #2e85d3;
+	font-size: 18px;
+	font-family:'Avenir LT W01 85 Heavy';
+	display: block;
+	height: 100%;
+	line-height: 82px;
+	position: relative;
+	padding-left:80px;
+	outline: none;
+}
+
+#results-section p, #results-section {
+	color:#848484;
+	font-size:16px;
+	font-family:'Avenir LT W01 55 Roman';
+	line-height: 24px;
+}
+#results-section h3 {
+	font-size:22px;
+	font-weight: normal;
+	font-family:'AvenirLTW01-35LightObli';
+	margin-bottom:15px;
+}
+#results-section a {
+	color:#2885d8;
+	text-decoration: none;
+}
+
+#results-section li {
+	margin:10px 0;
+}
+#results-section table {
+	margin-top:30px;
+}
+#results-section h2 a span {
+	width: 47px;
+	height: 48px;
+	background:url(./images/results-more.png) top left no-repeat;
+	overflow: hidden;
+	display: block;
+	position: absolute;
+	top:17px;
+	left:15px;
+	z-index: 1;
+}
+
+#results-section h2 a span.b {
+	background-position: bottom left;
+	display: none;
+	z-index: 2;
+}
+
+.results-entry {
+	width: 840px;
+	padding: 0 80px 30px 80px;
+	top: -20px;
+	position: relative;
+	z-index: 1;
+	display: none;
+}
+.results-item.active {
+	background:#f9f9f9;
+}
+
+#results-section .active h2 a {
+	background:#f9f9f9 !important;
+}
+.results-entry ul li a {
+	position: relative;
+	padding-left:27px;
+	line-height: 24px;
+	display: block;
+	height: 24px;
+}
+.results-entry ul li a span {
+	background: url(./images/our-partners-arrows.png) top left no-repeat;
+	display: block;
+	width: 14px;
+	height: 9px;
+	position: absolute;
+	overflow: hidden;
+	z-index: 1;
+	top:7px;
+	left:0;
+}
+.results-entry ul li a span.b {
+	z-index: 2;
+	background-position: bottom left;
+	zoom:1;
+	filter:alpha(opacity=0);
+	opacity: 0;
+}
+
+.page-template-template-resources-php article {
+	margin:25px auto 29px auto;
+}
+.page-template-template-resources-php article em {
+	color: #605e5e;
+	font-size: 22px;
+	line-height: 30px;
+}
+
+.page-template-template-resources-php article ul {
+	background: url(./images/dotted-border-x.png) top left repeat-x;
+	margin-top: 30px;
+}
+
+.page-template-template-resources-php article ul li {
+	background: url(./images/dotted-border-x.png) bottom left repeat-x;
+}
+
+.page-template-template-resources-php article ul li b, .page-template-template-resources-php article ul li strong {
+	font-size: 18px;
+	color: #2e85d3;
+	font-family:'Avenir LT W01 85 Heavy';
+	display: block;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+}
+
+.page-template-template-resources-php article ul li p, .page-template-template-resources-php article ul li {
+	font-size: 16px;
+	line-height: 24px;
+	display: block;
+}
+
+.page-template-template-resources-php article ul li {
+	width: 675px;
+	padding:20px 290px 20px 25px;
+	position: relative;
+}
+
+.page-template-template-resources-php article ul li a {
+	position: absolute;
+	top:50%;
+	right:5px;
+	width: 182px;
+	height: 45px;
+	margin-top: -18px;
+}
+.page-template-template-resources-php article ul li span {
+	background-image: url(./images/view-pdf.png);
+}
+
+#get-involved-sidenav, #about-us-sidenav {
+	background:url(./images/get-involved-sidenav.png) top left no-repeat;
+	width: 169px;
+	height: 90px;
+	padding-top:1px;
+	float: left;
+	margin-top: 15px;
+}
+#get-involved-sidenav div, #about-us-sidenav div {
+	background:url(./images/dotted-border-x.png) bottom left repeat-x;
+	height: 44px;
+	padding-bottom:1px;
+	overflow: auto;
+}
+
+#get-involved-sidenav div a, #about-us-sidenav div a {
+	display: block;
+	height: 42px;
+	margin:1px 2px 0 2px;
+	width: 151px;
+	line-height: 42px;
+	padding-left:14px;
+	color: #7d7c7c;
+	font-size: 18px;
+	text-transform: uppercase;
+	font-family:'AvenirLTW01-45BookObliq';
+	text-decoration: none;
+}
+#post-19 .page-19, #post-15 .page-15, #post-17 .page-17, .page-template-template-get-involved-php .page-15, .page-template-template-staff-php .staff-nav, .page-template-template-about-us-php .staff-nav, .page-template-template-in-the-news-php .news-nav {
+	background:#2885d8 !important;
+	color: #fff !important;
+}
+
+#get-involved-pages {
+	width: 730px;
+	float: right;
+	margin-top: 15px;
+	font-size: 18px;
+	font-family: 'Avenir LT W01 55 Roman';
+	line-height: 24px;
+}
+a {
+	text-decoration: none;
+	color: #2885d8;
+}
+
+#get-involved-pages p {
+	font-size: 18px;
+	font-family: 'Avenir LT W01 55 Roman';
+	line-height: 24px;	
+}
+
+#get-involved-pages em, #get-involved-pages i {
+	font-size: 22px;
+	font-family:'AvenirLTW01-45BookObliq';
+	line-height: 32px;
+	color: #605e5e;
+}
+
+#get-involved-pages h3 {
+font-size: 22px;
+font-family:'Avenir LT W01 85 Heavy';
+margin-bottom: 5px;
+}
+
+ #staff-section {
+	width: 730px;
+	float: right;
+}
+.staff-hidden-section {
+	display: none;
+}
+
+#staff-section .readmore, #news-section .readmore {
+	width: 123px;
+	height: 22px;
+	line-height: 22px;
+	text-transform: uppercase;
+	font-family:'Avenir LT W01 55 Roman';
+	font-size: 16px;
+	color: #2885d8;
+	position: relative;
+	display: block;
+	margin-top: 15px;
+	text-decoration: none;
+	cursor: pointer;
+}
+#staff-section .readmore span, #news-section .readmore span {
+	display: block;
+	width: 22px;
+	height: 22px;
+	right:0;
+	top:0;
+	background: url(./images/plus.png) top left no-repeat;
+	position: absolute;
+	z-index: 1;
+}
+#staff-section .readmore.readless {
+	width: 111px;
+}
+#staff-section .readmore.readless span {
+	background-image: url(./images/minus.png);
+
+}
+#staff-section .readmore span.b, #news-section .readmore span.b {
+	background-position: bottom left;
+	z-index: 2;
+	display: none;
+}
+
+#staff-section h2 {
+	font-family:'Avenir LT W01 85 Heavy';
+	font-size: 22px;
+}
+
+#staff-section h3 {
+	font-family:'Avenir LT W01 85 Heavy';
+	font-size: 16px;
+	margin-bottom:15px;
+}
+
+#staff-section, #staff-section p {
+	font-size: 16px;
+	font-family:'Avenir LT W01 55 Roman';
+	line-height: 27px;
+}
+
+.staff-item {
+	background:url(./images/dotted-border-x.png) bottom left repeat-x;
+	padding-bottom:30px;
+	margin-top:30px;
+}
+
+.staff-item:first-child {
+	margin-top: 0;
+}
+
+
+#news-section {
+	width: 745px;
+	float: right;
+	margin-top: 15px;
+}
+
+.news-item {
+	width: 745px;
+	height: 244px;
+	background:url(./images/news-structure.png) top left no-repeat;
+	margin:26px 0 0 0;
+}
+
+.news-item:first-child {
+	margin:0;
+}
+
+.news-logo {
+	width: 231px;
+	height: 240px;
+	margin:2px 0 0 2px;
+	width: 231px;
+	height: 240px;
+	display: table; 
+	text-align: center;
+	float: left;
+}
+.news-logo .img-wrap {
+	display: table-cell; 
+	vertical-align: middle; 
+	margin:0 auto;
+}
+
+.news-info {
+	padding: 23px 19px 23px 19px;
+	width: 469px;
+	height: 194px;
+	float: left;
+	margin: 2px 0 0 3px;
+}
+
+.news-info h3 {
+	color: #a9a8a8;
+	font-size: 16px;
+	font-family:'Avenir LT W01 85 Heavy';
+}
+
+.news-info h2 {
+	color: #848484;
+	font-size: 20px;
+	font-family:'Avenir LT W01 85 Heavy';
+	margin-bottom: 13px;
+	margin-top: 3px;
+}
+
+.news-info, .news-info p {
+	font-size: 16px;
+	line-height: 24px;
+}
+
+.default-title {
+	margin-bottom: 21px;
+}
+
+#contact-section {
+	width: 991px;
+	height: 134px;
+	background:url(./images/contact-us-structure.png) top left no-repeat;
+	overflow: hidden;
+	margin-top: 31px;
+}
+
+#contact-section > div{
+	height: 130px;
+	margin:2px 2px 2px 2px;
+	float: left;
+	display: table;
+	text-align: center;
+}
+
+#contact-section .address {
+	width: 265px;
+
+    font-size: 16px;
+    line-height: 22px;
+
+}
+
+
+#contact-section .email {
+	width: 277px;
+}
+
+#contact-section .facebook {
+	width: 139px;
+}
+#contact-section .twitter {
+	width: 131px;
+}
+#contact-section .youtube {
+	width: 158px;
+}
+#contact-section .centered {
+	display: table-cell;
+	vertical-align: middle;
+	margin:; 0 auto;
+}
+
+#contact-section {
+	color:#605e5e;
+	font-size: 20px;
+	font-family:'AvenirLTW01-45BookObliq';
+	line-height: 30px;
+}
+
+#contact-section a {
+	color:#2884d6;
+	text-decoration: none;
+	position: relative;
+}
+
+#contact-section a span {
+	display: block;
+	position: absolute;
+	z-index: 1;
+	overflow: hidden;
+	background-position: top left;
+	left: 0;
+}
+#contact-section a span.b {
+	background-position: bottom left;
+	display: none;
+	z-index: 2;
+}
+
+#contact-section .email a {
+	padding-left: 46px;
+}
+#contact-section .email a span {
+	width: 36px;
+	height: 20px;
+	top:1px;
+	background-image: url(./images/contact-email.png);
+}
+
+#contact-section .facebook a {
+	padding-left: 25px;
+}
+#contact-section .facebook a span {
+	width: 15px;
+	height: 31px;
+	top:-5px;
+	background-image: url(./images/contact-facebook.png);
+}
+
+#contact-section .twitter a {
+	padding-left: 43px;
+}
+#contact-section .twitter a span {
+	background-image: url(./images/contact-twitter.png);
+    height: 24px;
+    left: 8px;
+    top: 0;
+    width: 29px;
+}
+
+#contact-section .youtube a {
+	padding-left: 43px;
+}
+#contact-section .youtube a span {
+	width: 33px;
+	height: 38px;
+	top:-11px;
+	background-image: url(./images/contact-youtube.png);
+}
+
+.page-template-template-contact-us-php #map_canvas {
+	width: 986px;
+	height: 288px;
+}
+
+#lightbox-overlay {
+	position: fixed;
+	top:0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background:#000;
+	opacity: .8;
+	z-index: 1000;
+	zoom:1;
+	filter:alpha(opacity=80);
+	display: none;
+}
+
+#lightbox {
+	background:#fff;
+	width: 752px;
+	height: 426px;
+	position: fixed;
+	top:50%;
+	left: 50%;
+	z-index: 1001;
+	margin-top: -213px;
+	margin-left: -376px;
+	-webkit-box-shadow: 0px 0px 30px rgba(50, 50, 50, 1);
+	-moz-box-shadow:    0px 0px 30px rgba(50, 50, 50, 1);
+	box-shadow:         0px 0px 30px rgba(50, 50, 50, 1);
+	display: none;
+}
+
+#lightbox-content {
+	margin:5px;
+}
+
+#lightbox-close {
+	width: 22px;
+	height: 22px;
+	background: url(./images/lightbox-close.png) top left no-repeat;
+	overflow: hidden;
+	display: block;
+	text-indent: -9999px;
+	position: absolute;
+	top:-32px;
+	right:-32px;
+}
+
+#lightbox-close:hover {
+	background-position: bottom left;
+}
+#lightbox-arrow-left {
+	display: block;
+	text-indent: -99999px;
+	overflow: hidden;
+	height: 61px;
+	width: 24px;
+	position: absolute;
+	top:50%;
+	margin-top:-30px;
+	left:-44px;
+	cursor: pointer;
+	background:url(./images/lightbox-arrows.png) top left no-repeat;
+}
+
+#lightbox-arrow-left:hover {
+	background-position: bottom left;
+}
+
+#lightbox-arrow-right {
+	display: block;
+	text-indent: -99999px;
+	overflow: hidden;
+	height: 61px;
+	width: 24px;
+	position: absolute;
+	top:50%;
+	margin-top:-30px;
+	right:-44px;
+	cursor: pointer;
+	background:url(./images/lightbox-arrows.png) top right no-repeat;
+}
+
+#lightbox-arrow-right:hover {
+	background-position: bottom right;
+}
+
+.results-gallery-container {
+	width: 99999px;
+}
+.results-gallery-viewport {
+	width: 847px;
+	height: 190px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.results-gallery {
+	width: 955px;
+	position: relative;
+	margin-left: -63px;
+}
+
+ .results-gallery-container a {
+ 	margin:0 0 0 14px;
+ 	float: left;
+ 	border:4px solid #2884d7;
+ 	display: block;
+ 	height: 182px;
+ 	position: relative;
+ }
+
+ .results-gallery-container a img{
+ 	height: 182px;
+ }
+
+ .results-gallery-container a:first-child {
+ 	margin:0 0 0 0px;
+ }
+
+.results-gallery .prev-arrow, .results-gallery .next-arrow {
+	width: 54px;
+	height: 190px;
+	position: absolute;
+	top:0;
+	cursor: pointer;
+	display: none;
+}
+.results-gallery .prev-arrow {
+	left:0;	
+}
+
+.results-gallery .prev-arrow span {
+	background-image: url(./images/results-gallery-prev.png);
+}
+.results-gallery .next-arrow {
+	right:0;	
+}
+
+.results-gallery .next-arrow span {
+	background-image: url(./images/results-gallery-next.png);
+}
+
+.results-hover {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background:url(./images/results-gallery-hover.png) top left no-repeat;
+	display: none;
+	position: absolute;
+	bottom:0;
+	left: 0;
+	z-index: 2;
+}
+
+::selection {
+	background: #c12256; /* Safari */
+	}
+::-moz-selection {
+	background: #c12256; /* Firefox */
+}
+
+#debug {
+	position: fixed;
+	top:0;
+	left: 0;
+	background:#fff;
+	z-index: 100000;
+	display: none;
+}
+
+.post {}
+
+.entry-content {}
+.entry-content a {}
+.entry-content a:hover {}
+
+#meta {}
+.postmetadata {}
+
+#sidebar {}
+
+.navgation {}
+.next-posts {}
+.prev-posts {}
+
+#searchform {}
+#s {}
+#searchsubmt {}
+	
+ol.commentlist {list-style: none;}
+ol.commentlist li {}
+ol.commentlist li.alt {}
+ol.commentlist li.bypostauthor {}
+ol.commentlist li.byuser {}
+ol.commentlist li.comment-author-admin {}
+ol.commentlist li.comment {border-bottom: 1px dotted #666; padding: 10px;}
+ol.commentlist li.comment div.comment-author {}
+ol.commentlist li.comment div.vcard {}
+ol.commentlist li.comment div.vcard cite.fn {font-style: normal;}
+ol.commentlist li.comment div.vcard cite.fn a.url {}
+ol.commentlist li.comment div.vcard img.avatar {float:right; margin: 0 0 10px 10px;}
+ol.commentlist li.comment div.vcard img.avatar-32 {}
+ol.commentlist li.comment div.vcard img.photo {}
+ol.commentlist li.comment div.vcard span.says {}
+ol.commentlist li.comment div.commentmetadata {}
+ol.commentlist li.comment div.comment-meta {font-size: 10px;}
+ol.commentlist li.comment div.comment-meta a {color: #ccc;}
+ol.commentlist li.comment p {}
+ol.commentlist li.comment ul {}
+ol.commentlist li.comment div.reply {font-size: 11px;}
+ol.commentlist li.comment div.reply a {font-weight: normal;}
+ol.commentlist li.comment ul.children {list-style: none; margin: 10px 0 0;}
+ol.commentlist li.comment ul.children li {}
+ol.commentlist li.comment ul.children li.alt {}
+ol.commentlist li.comment ul.children li.bypostauthor {}
+ol.commentlist li.comment ul.children li.byuser {}
+ol.commentlist li.comment ul.children li.comment {}
+ol.commentlist li.comment ul.children li.comment-author-admin {}
+ol.commentlist li.comment ul.children li.depth-2 {border-left: 5px solid #555; margin: 0 0 10px 10px;}
+ol.commentlist li.comment ul.children li.depth-3 {border-left: 5px solid #999; margin: 0 0 10px 10px;}
+ol.commentlist li.comment ul.children li.depth-4 {border-left: 5px solid #bbb; margin: 0 0 10px 10px;}
+ol.commentlist li.comment ul.children li.depth-5 {}
+ol.commentlist li.comment ul.children li.odd {}
+ol.commentlist li.even {background: #fff;}
+ol.commentlist li.odd {background: #f6f6f6;}
+ol.commentlist li.parent {border-left: 5px solid #111;}
+ol.commentlist li.thread-alt {}
+ol.commentlist li.thread-even {}
+ol.commentlist li.thread-odd {}
+
+
+/* Print styles!
+-------------------------------------------------------------------------------*/
+@media print {
+
+
+
+}
+
+
+/* Media queries!
+-------------------------------------------------------------------------------*/
+
+/* Consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */
+@media screen and (max-device-width: 480px) {
+	
+		
+}
+
+@media all and (orientation: portrait) {
+	
+}
+
+@media all and (orientation: landscape) {
+	
+}

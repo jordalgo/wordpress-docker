@@ -1,0 +1,8 @@
+FROM node:5.12
+
+# This setup works because we the directory this file is in becomes the working directory
+# and contains the same package.json file installed below in the root of the image
+# with the node_modules folder
+COPY package.json .
+RUN npm install --global gulp-cli
+RUN npm install

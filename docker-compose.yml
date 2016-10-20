@@ -1,0 +1,53 @@
+version: '2'
+services:
+  wordpress:
+    build:
+      context: .
+      dockerfile: dockerfile-wordpress
+    depends_on:
+      - db
+      - composer
+    links:
+      - db
+      - composer
+    ports:
+      - "80:80"
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_PASSWORD: wordpress
+    volumes:
+      - .:/var/www/html
+
+  db:
+    image: mysql:5.7
+    volumes:
+      - "./.data/db:/var/lib/mysql"
+    ports:
+      - "3306"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: wordpress
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+
+  composer:
+    restart: 'no'
+    image: composer/composer:php7
+    command: install
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html
+
+  npm:
+    restart: 'no'
+    build:
+      context: .
+      dockerfile: dockerfile-npm
+    command: "npm run dev"
+    restart: always
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html
+
