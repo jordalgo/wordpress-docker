@@ -24,7 +24,7 @@ define('WP_SITEURL', $server . '/wordpress');
 define('WP_HOME', $server);
 define('WP_CONTENT_DIR', $_SERVER['DOCUMENT_ROOT'] . '/wp-content');
 define('WP_CONTENT_URL', $server . '/wp-content');
-define('WP_DEFAULT_THEME', 'default');
+define('WP_DEFAULT_THEME', 'simple');
 
 /**
  * MySQL Settings

@@ -5,4 +5,4 @@ wordpress
 composer.lock
 .data
 .htaccess
-wp-content/themes/default/library/build
+wp-content/themes/simple/library/build

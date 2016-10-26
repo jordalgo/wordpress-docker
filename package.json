@@ -1,6 +1,6 @@
 {
-  "name": "wordpress_site",
-  "themePath": "wp-content/themes/default/",
+  "name": "Simple Theme",
+  "themePath": "wp-content/themes/simple/",
   "localhostPort": 8000,
   "private": true,
   "repository": {
