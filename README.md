@@ -3,7 +3,7 @@
 ## Setup
 
 For local development:
-`cp htaccess-local .htaccess`
+- `cp htaccess-local .htaccess`
 
 On your server:
 - `cp htaccess-remote .htaccess` (this version has more security settings)
