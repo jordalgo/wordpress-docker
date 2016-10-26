@@ -1,9 +1,9 @@
-let $ = require('jQuery');
+import {test} from './mod1-sample';
+const $ = require('jquery');
 
-import mod1 from './mod1-sample';
 
-$(document).ready(function(){
-  mod1();
+$(document).ready(() => {
+  test();
   $('.mobile-hamburger-menu').click(() => {
     $('.access, .mobile-hamburger-menu').toggleClass('active');
   });
