@@ -1,4 +1,4 @@
-FROM node:5.12
+FROM node:6
 
 # This setup works because we the directory this file is in becomes the working directory
 # and contains the same package.json file installed below in the root of the image

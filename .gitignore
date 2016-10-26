@@ -1,5 +1,6 @@
 wp-config.php
 node_modules
+npm-debug.log
 vendor
 wordpress
 composer.lock
