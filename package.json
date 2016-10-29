@@ -20,7 +20,7 @@
     "gulp-uglify": "^2.0.0",
     "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.10",
-    "jQuery": "^1.7.4",
+    "jquery": "^3.1.1",
     "pump": "^1.0.1",
     "vinyl-source-stream": "^1.1.0"
   },

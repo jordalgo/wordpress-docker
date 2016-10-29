@@ -18,6 +18,19 @@ This creates four docker containers:
 - NPM Container (install javascript dependencies, and task run for the default theme)
 - Composer Container (installing wordpress plugins & *wordpress itself* which is version controlled via composer)
 
+If you update the package.json file you have to rebuild the images `docker-compose build`.
+
+## Building and Deploying
+
+To prepare for deploying:
+`docker run -i -t -v $(pwd)/.:/deploy -w="/deploy" wordpress_npm npm run build`
+
+This runs the build command in package.json within a temporary container built from the wordpress_npm image.
+
+This current setup uses `rsync` via `deploy.sh`.
+
+Update the deploy.sh file by changing USERNAME, DOMAIN, and FOLDER to match your remote server's information. Then you can run `sh deploy.sh`.
+
 ## More Details
 
 #### Adding more Wordpress Plugins
@@ -33,6 +46,9 @@ Make sure you check the actual port as it can be different everytime. `docker ps
 
 #### Removing the Default Theme
 If you don't have a use for a custom theme that has a dev workflow run on NPM and Gulp, you can remove the "npm" entry in docker-compose.yml. You can also remove `gulpfile.js`, `package.json` and the whole default theme directory.
+
+#### Building for Deploy
+`docker run -i -t -v $(pwd)/.:/var/www/html -w="/var/www/html" wordpress_npm npm run build`
 
 ## Todo
 - Add details on remote server configuration.
