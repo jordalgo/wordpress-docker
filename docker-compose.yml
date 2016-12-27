@@ -34,8 +34,9 @@ services:
 
   composer:
     restart: 'no'
-    image: composer/composer:php7
-    command: install
+    build:
+      context: .
+      dockerfile: dockerfile-composer
     working_dir: /var/www/html
     volumes:
       - .:/var/www/html
