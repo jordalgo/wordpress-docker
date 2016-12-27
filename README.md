@@ -16,6 +16,8 @@ Copy the files from the composer container. This is so we don't have to re-insta
 `docker cp wordpressdocker_composer_1:/var/www/html/wp-content/plugins ./wp-content/`
 `docker cp wordpressdocker_composer_1:/var/www/html/wordpress .`
 
+**Note**: You don't have to re-run above if you already have the wordpress and plugins folders in the local directory and you haven't changed the composer.json file.
+
 This creates four docker containers:
 - MySQL database
 - Wordpress Container (php/apache)
