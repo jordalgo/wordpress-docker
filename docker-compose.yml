@@ -1,6 +1,7 @@
 version: '2'
 services:
   wordpress:
+    container_name: wp-docker-wordpress
     build:
       context: .
       dockerfile: dockerfile-wordpress
@@ -20,6 +21,7 @@ services:
       - .:/var/www/html
 
   db:
+    container_name: wp-docker-mysql
     image: mysql:5.7
     volumes:
       - "./.data/db:/var/lib/mysql"
@@ -33,12 +35,14 @@ services:
       MYSQL_PASSWORD: wordpress
 
   composer:
+    container_name: wp-docker-composer
     restart: 'no'
     build:
       context: .
       dockerfile: dockerfile-composer
 
   npm:
+    container_name: wp-docker-npm
     restart: 'no'
     build:
       context: .
