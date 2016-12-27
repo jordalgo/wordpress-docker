@@ -13,8 +13,8 @@ On your server:
 `docker-compose up -d`
 
 Copy the files from the composer container. This is so we don't have to re-install the composer modules every `up` and they can also be rsynced up to the server for deployment.
-`docker cp wordpressdocker_composer_1:/var/www/html/wp-content/plugins ./wp-content/`
-`docker cp wordpressdocker_composer_1:/var/www/html/wordpress .`
+- `docker cp wordpressdocker_composer_1:/var/www/html/wp-content/plugins ./wp-content/`
+- `docker cp wordpressdocker_composer_1:/var/www/html/wordpress .`
 
 **Note**: You don't have to re-run above if you already have the wordpress and plugins folders in the local directory and you haven't changed the composer.json file.
 
