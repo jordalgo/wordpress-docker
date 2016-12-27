@@ -12,13 +12,17 @@ On your server:
 ## Local Development
 `docker-compose up -d`
 
+Copy the files from the composer container. This is so we don't have to re-install the composer modules every `up` and they can also be rsynced up to the server for deployment.
+`docker cp wordpressdocker_composer_1:/var/www/html/wp-content/plugins ./wp-content/`
+`docker cp wordpressdocker_composer_1:/var/www/html/wordpress .`
+
 This creates four docker containers:
 - MySQL database
 - Wordpress Container (php/apache)
 - NPM Container (install javascript dependencies, and task run for the default theme)
-- Composer Container (installing wordpress plugins & *wordpress itself* which is version controlled via composer)
+- Composer Container (wordpress plugins & *wordpress itself* which is version controlled via composer)
 
-If you update the package.json file you have to rebuild the images `docker-compose build`.
+If you update the package.json or composer.json file you have to rebuild the images `docker-compose build`.
 
 ## Building and Deploying
 
