@@ -9,6 +9,7 @@ package.json
 gulpfile.js
 dockerfile-wordpress
 dockerfile-npm
+dockerfile-composer
 docker-entrypoint.sh
 docker-compose.yml
 composer.lock

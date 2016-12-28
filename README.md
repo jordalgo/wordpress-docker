@@ -31,6 +31,8 @@ If you update the package.json or composer.json file you have to rebuild the ima
 To prepare for deploying:
 `docker run -i -t -v $(pwd)/.:/deploy -w="/deploy" wordpress_npm npm run build`
 
+**Note** wordpress_npm will be a different name depending on the root name of your folder e.g. 'mysite_npm'.
+
 This runs the build command in package.json within a temporary container built from the wordpress_npm image.
 
 This current setup uses `rsync` via `deploy.sh`.

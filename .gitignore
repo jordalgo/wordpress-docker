@@ -6,5 +6,6 @@ wordpress
 composer.lock
 .data
 .htaccess
-wp-content/themes/simple/library/build
+wp-content/themes/*/library/build
 wp-content/plugins
+wp-content/uploads
