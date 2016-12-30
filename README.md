@@ -2,6 +2,8 @@
 
 ## Setup
 
+`git clone https://github.com/jordalgo/wordpress-docker.git my-wordpress-site`
+
 For local development:
 - `cp htaccess-local .htaccess`
 
@@ -12,12 +14,6 @@ On your server:
 ## Local Development
 `docker-compose up -d`
 
-Copy the files from the composer container. This is so we don't have to re-install the composer modules every `up` and they can also be rsynced up to the server for deployment.
-- `docker cp wp-docker-composer:/var/www/html/wp-content/plugins ./wp-content/`
-- `docker cp wp-docker-composer:/var/www/html/wordpress .`
-
-**Note**: You don't have to re-run above if you already have the wordpress and plugins folders in the local directory and you haven't changed the composer.json file.
-
 This creates four docker containers:
 - MySQL database
 - Wordpress Container (php/apache)
@@ -26,12 +22,18 @@ This creates four docker containers:
 
 If you update the package.json or composer.json file you have to rebuild the images `docker-compose build`.
 
+Copy the files from the composer container. This is so we don't have to re-install the composer packages every `up` and they can also be rsynced up to the server for deployment.
+- `docker cp wp-docker-composer:/var/www/html/wp-content/plugins ./wp-content/`
+- `docker cp wp-docker-composer:/var/www/html/wordpress .`
+
+**Note**: You don't have to re-run above if you already have the wordpress and plugins folders in the local directory and you haven't changed the composer.json file.
+
 ## Building and Deploying
 
 To prepare for deploying:
 `docker run -i -t -v $(pwd)/.:/deploy -w="/deploy" wordpress_npm npm run build`
 
-**Note** wordpress_npm will be a different name depending on the root name of your folder e.g. 'mysite_npm'.
+**Note** wordpress_npm will be a different name depending on the root name of your folder e.g. 'my-wordpress-site_npm'.
 
 This runs the build command in package.json within a temporary container built from the wordpress_npm image.
 

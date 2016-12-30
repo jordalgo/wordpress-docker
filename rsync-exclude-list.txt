@@ -2,6 +2,8 @@ wp-content/uploads/
 node_modules/
 .git/
 .htaccess
+.data
+.gitignore
 vendor/
 htaccess-local
 wp-config.php
