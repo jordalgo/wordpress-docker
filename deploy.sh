@@ -8,22 +8,22 @@
 
 # All variables hardcoded
 # Hardcode your  username@server.name:directory (ex. johndoe@mysite.com:public-www)
-# rsync -e ssh -p -avz --exclude-from deploy-exclude-list.txt ./_site/ USERNAME@SERVER.NAME:DIRECTORY
+# rsync -e ssh -p -avz --exclude-from deploy-exclude-list.txt ./ USERNAME@SERVER.NAME:DIRECTORY
 
 
 # Prompt for username
 # Hardcode your server.name:directory (ex. mysite.com:public-www)
-# echo "Please enter username: "
-# read usr
-# rsync -e ssh -p -avz --exclude-from deploy-exclude-list.txt ./_site/ $usr@SERVER.NAME:DIRECTORY
+echo "Please enter username: "
+read usr
+rsync -e ssh -p -avz --exclude-from deploy-exclude-list.txt ./ $usr@SERVER.NAME:DIRECTORY
 
 
 # Prompt for each detail
-echo "Please enter username"
-read usr
-echo "Please enter server.name:diretory"
-read srvdir
-rsync -e ssh -p -avz --exclude-from deploy-exclude-list.txt ./_site/ $usr@$srvdir
+# echo "Please enter username"
+# read usr
+# echo "Please enter server.name:directory"
+# read srvdir
+# rsync -e ssh -p -avz --exclude-from deploy-exclude-list.txt ./ $usr@$srvdir
 
 
 # Do it all with ssh keys:
