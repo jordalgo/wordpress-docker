@@ -1,7 +1,10 @@
+.data
 .git/
+.gitignore
 .htaccess
 composer.lock
 composer.json
+htaccess-local
 dockerfile-wordpress
 dockerfile-npm
 dockerfile-composer
