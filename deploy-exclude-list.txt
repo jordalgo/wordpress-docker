@@ -1,0 +1,17 @@
+.git/
+.htaccess
+composer.lock
+composer.json
+dockerfile-wordpress
+dockerfile-npm
+dockerfile-composer
+docker-entrypoint.sh
+docker-compose.yml
+gulpfile.js
+htaccess-local
+node_modules/
+package.json
+README.md
+vendor/
+wp-config.php
+wp-content/uploads/
