@@ -1,7 +1,7 @@
 ## Setup
 
-`cd my-wordpress-site`
-`sh setup/setup.sh`
+- `cd my-wordpress-site`
+- `sh setup/setup.sh`
 
 Optionally:
 You can removed these files from `.gitignore` if you want them tracked.
@@ -10,10 +10,6 @@ You can removed these files from `.gitignore` if you want them tracked.
 - deploy.sh
 - gulpfile.js
 - package.json
-
-On your server:
-- `cp setup/htaccess-remote .htaccess` (this version has more security settings)
-- `cp setup/wp-config.php wp-config.php`. Then update the database values to match what you have configured with your web host AND fill in the unique keys and salts ([generate these](https://api.wordpress.org/secret-key/1.1/salt)). It's also a good idea to change the table prefix from `wp_` to something unique.
 
 ## Local Development
 `docker-compose up -d`
@@ -44,6 +40,10 @@ This runs the build command in package.json within a temporary container built f
 This current setup uses `rsync` via `deploy.sh` (which was copied into the root from running `sh setup/setup.sh`).
 
 Update the `deploy.sh` file by changing USERNAME, DOMAIN, and FOLDER to match your remote server's information. Then you can run `sh deploy.sh`.
+
+On your server:
+- `cp setup/htaccess-remote .htaccess` (this version has more security settings)
+- `cp setup/wp-config.php wp-config.php`. Then update the database values to match what you have configured with your web host AND fill in the unique keys and salts ([generate these](https://api.wordpress.org/secret-key/1.1/salt)). It's also a good idea to change the table prefix from `wp_` to something unique.
 
 ## More Details
 
