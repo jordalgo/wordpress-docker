@@ -9,3 +9,11 @@ composer.lock
 wp-content/themes/*/library/build
 wp-content/plugins
 wp-content/uploads
+
+# these are customized by the setup
+composer.json
+deploy-exclude-list.txt
+deploy.sh
+gulpfile.js
+package.json
+

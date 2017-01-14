@@ -10,7 +10,7 @@ RUN docker-php-ext-install mysqli
 
 VOLUME /var/www/html
 
-COPY docker-entrypoint.sh /entrypoint.sh
+COPY docker-entrypoint-wordpress.sh /entrypoint.sh
 
 # grr, ENTRYPOINT resets CMD now
 ENTRYPOINT ["/entrypoint.sh"]
