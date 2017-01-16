@@ -3,14 +3,6 @@
 - `cd my-wordpress-site`
 - `sh setup/setup.sh`
 
-Optionally:
-You can removed these files from `.gitignore` if you want them tracked.
-- composer.json
-- deploy-exclude-list.txt
-- deploy.sh
-- gulpfile.js
-- package.json
-
 ## Local Development
 `docker-compose up -d`
 

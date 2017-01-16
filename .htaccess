@@ -1,4 +1,5 @@
-# This is for wordpress permalinks. Delete if not used.
+# This is for a local environment (meaning no added security)
+# For a more bells and whistles .htaccess file see setup/htaccess-remote
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteBase /
