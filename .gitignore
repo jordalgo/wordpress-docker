@@ -1,4 +1,5 @@
 wp-config.php
+!setup/wp-config.php
 node_modules
 npm-debug.log
 vendor
