@@ -36,7 +36,7 @@ rules:
   max-len: [2, 120]
   new-cap: 1
   valid-jsdoc: 0
-  no-use-before-define: 1
+  no-use-before-define: [0, { "functions": false }]
   block-scoped-var: 0
   strict: 0
   no-underscore-dangle: 0
