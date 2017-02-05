@@ -34,8 +34,8 @@ This current setup uses `rsync` via `deploy.sh` (which was copied into the root 
 Update the `deploy.sh` file by changing USERNAME, DOMAIN, and FOLDER to match your remote server's information. Then you can run `sh deploy.sh`.
 
 On your server:
-- `cp setup/htaccess-remote .htaccess` (this version has more security settings)
-- `cp setup/wp-config.php wp-config.php`. Then update the database values to match what you have configured with your web host AND fill in the unique keys and salts ([generate these](https://api.wordpress.org/secret-key/1.1/salt)). It's also a good idea to change the table prefix from `wp_` to something unique.
+- `cp setup/htaccess-remote .htaccess` (this version has more security settings but you will need to update it with your site details).
+- `cp setup/wp-config-sample.php wp-config.php`. Then update the database values to match what you have configured with your web host AND fill in the unique keys and salts ([generate these](https://api.wordpress.org/secret-key/1.1/salt)). It's also a good idea to change the table prefix from `wp_` to something unique.
 
 ## More Details
 
