@@ -23,7 +23,7 @@ Copy the files from the composer container. This is so we don't have to re-insta
 ## Building and Deploying
 
 To prepare for deploying:
-`docker run -i -t -v $(pwd)/.:/deploy -w="/deploy" wordpress_npm npm run build`
+`docker run --rm -i -t -v $(pwd)/.:/deploy -w="/deploy" wordpress_npm npm run build`
 
 **Note** wordpress_npm will be a different name depending on the root name of your folder e.g. 'my-wordpress-site_npm'.
 
