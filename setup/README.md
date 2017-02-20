@@ -42,10 +42,18 @@ On your server:
 #### Adding more Wordpress Plugins
 Add the plugins to composer.json (search for the [here](https://wpackagist.org)); a few are in there already as examples.
 
-#### Connecting to the MySql Container from Sequel Pro?
+#### Connecting to the MySql Container from Sequel Pro.
 Host: 0.0.0.0
 Port: 32769 or something similar.
 Make sure you check the actual port as it can be different everytime. `docker ps -a`.
+
+#### Remote DB Syncing with Local
+This technique is very basic at the moment.
+- create a folder on your remote server called "_db_backups"
+- Update the "backup-db.sh" file in your root directory with your mysql info and then run this script: `sh backup-db.sh` on your remote server.
+- Then on your local machine, copy the generated mysql dump files: `scp -P 2222 -r USER_NAME@HOST_ADDRESSS:/absolute/path/to/_db_backups/ .`
+- You can then use these gzipped mysql files locally when you spin up your dev environment.
+- *Note* You can also setup a crontab (example in the setup folder) to run this script on a certain schedule.
 
 #### Kill And remove All containers
 `docker rm -fv $(docker ps -aq)`
@@ -58,5 +66,5 @@ If you don't have a use for a custom theme that has a dev workflow run on NPM an
 
 ## Todo
 - Add details on remote server configuration.
-- Include steps on deploying (via rsync to start).
 - Remove gulp (or make it more agnostic to the setup).
+- Create better/safer way to backup whole site (db, uploads, etc...)
