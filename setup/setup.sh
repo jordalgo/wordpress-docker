@@ -6,6 +6,7 @@ customized_files=(
   'deploy-exclude-list.txt'
   'gulpfile.js'
   'package.json'
+  'backup-db.sh'
 )
 
 for i in ${customized_files[@]}; do

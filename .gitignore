@@ -12,8 +12,14 @@ wp-content/uploads
 
 # these are customized by the setup
 composer.json
+!setup/composer.json
 deploy-exclude-list.txt
+!setup/deploy-exclude-list.txt
 deploy.sh
+!setup/deploy.sh
 gulpfile.js
+!setup/gulpfile.js
 package.json
-
+!setup/package.json
+backup-db.sh
+!setup/backup-db.sh
