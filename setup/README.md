@@ -12,20 +12,18 @@ This creates four docker containers:
 - NPM Container (install javascript dependencies, and task run for the default theme)
 - Composer Container (wordpress plugins & *wordpress itself* which is version controlled via composer)
 
-If you update the package.json or composer.json file you have to rebuild the images `docker-compose build`.
+If you update the package.json or composer.json file you have to rebuild the images `docker-compose build && sh build.sh`.
 
-Copy the files from the composer container. This is so we don't have to re-install the composer packages every `up` and they can also be rsynced up to the server for deployment.
-- `docker cp wp-docker-composer:/var/www/html/wp-content/plugins ./wp-content/`
-- `docker cp wp-docker-composer:/var/www/html/wordpress .`
+Copy the files from the composer container. This is so we don't have to re-install the composer packages every `up` and they can also be rsynced up to the server for deployment. Run `sh build.sh`
 
 **Note**: You don't have to re-run above if you already have the wordpress and plugins folders in the local directory and you haven't changed the composer.json file.
 
 ## Building and Deploying
 
 To prepare for deploying:
-`docker run --rm -i -t -v $(pwd)/.:/deploy -w="/deploy" wordpress_npm npm run build`
+`sh build.sh`
 
-**Note** wordpress_npm will be a different name depending on the root name of your folder e.g. 'my-wordpress-site_npm'.
+**Note** The Docker image name depends on the root name of your folder e.g. 'my-wordpress-site_npm'.
 
 This runs the build command in package.json within a temporary container built from the wordpress_npm image.
 
